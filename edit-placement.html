@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="InternTrack - edit industrial training placement details">
+  <meta name="author" content="Nur Husna">
+  <title>Edit Placement | InternTrack</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-brand-custom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="home.html">InternTrack</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="applications.html">Applications</a></li>
+          <li class="nav-item"><a class="nav-link" href="logbook.html">Logbook</a></li>
+          <li class="nav-item"><a class="nav-link" href="attendance.html">Attendance</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+          <li class="nav-item"><a class="nav-link active" href="placement.html">My Placement</a></li>
+          <li class="nav-item"><a class="nav-link" href="directory.html">Insights</a></li>
+        </ul>
+        <button class="btn btn-outline-light btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <h1 class="page-title h3 mb-1">Edit Placement</h1>
+    <p class="text-muted mb-4">Update your company, dates and supervisors</p>
+
+    <div id="flash" class="alert alert-success d-none" role="alert">
+      Placement saved successfully. <a href="placement.html" class="alert-link">Back to My Placement</a>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-lg-9 mx-auto">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div id="formErr" class="alert alert-danger d-none" role="alert"></div>
+
+            <form id="placementForm" class="row g-3">
+              <div class="col-12">
+                <label class="form-label" for="fPlacement">Company (from your approved applications)</label>
+                <select class="form-select" id="fPlacement"></select>
+                <div class="form-text" id="placementHint"></div>
+              </div>
+              <div class="col-6 col-md-4">
+                <label class="form-label" for="fStart">Start date</label>
+                <input type="date" class="form-control" id="fStart">
+              </div>
+              <div class="col-6 col-md-4">
+                <label class="form-label" for="fEnd">End date</label>
+                <input type="date" class="form-control" id="fEnd">
+              </div>
+              <div class="col-12 col-md-4">
+                <label class="form-label" for="fTarget">Target hours</label>
+                <input type="number" class="form-control" id="fTarget" min="1" max="2000">
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="fSup">Industrial supervisor (company)</label>
+                <input type="text" class="form-control" id="fSup" placeholder="Name">
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label" for="fSupEmail">Supervisor email</label>
+                <input type="email" class="form-control" id="fSupEmail" placeholder="name@company.com">
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label" for="fSupPhone">Supervisor phone</label>
+                <input type="tel" class="form-control" id="fSupPhone" placeholder="e.g. 012-3456789">
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="fFacSup">Faculty supervisor (UiTM)</label>
+                <input type="text" class="form-control" id="fFacSup" placeholder="Name">
+              </div>
+              <div class="col-12 d-flex gap-2">
+                <button type="submit" class="btn btn-brand px-4">Save Placement</button>
+                <a href="placement.html" class="btn btn-outline-secondary">Back to My Placement</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer py-3 mt-5">
+    <div class="container d-flex flex-column flex-md-row justify-content-between text-center text-md-start">
+      <span>&copy; 2026 InternTrack | IMS566 Individual Project</span>
+      <span>Universiti Teknologi MARA</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/auth.js"></script><script src="js/nav.js"></script>
+  <script src="js/data.js"></script>
+  <script>requireLogin();</script>
+  <script src="js/profile-store.js"></script>
+  <script src="js/edit-placement.js"></script>
+</body>
+</html>
